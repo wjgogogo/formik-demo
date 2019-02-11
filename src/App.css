@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+}
+
+.app {
+	overflow: hidden;
+}
+
+.content {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	height: 600px;
+	border: 1px solid #e6e6e6;
+	padding: 30px;
+}
+
+.address {
+	margin-left: 52px;
+}
+
+.submit-area{
+	margin-left: 52px;
+	margin-top: 30px;
+}
+
+.submit-area button{
+	font-size: 1rem;
+}
+.debug {
+	line-height: 1.5;
+}
