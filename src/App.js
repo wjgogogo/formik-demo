@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Formik, Field} from "formik";
+import {Formik, Field, Form} from "formik";
 
 import './App.css';
 
@@ -32,22 +32,27 @@ class App extends Component {
             console.log(values)
           }}
           render={props =>
-            <form onSubmit={props.handleSubmit}>
+            <Form>
               <div className="content">
                 <div>
-                  <label>姓名： </label><input type="text" id="name" name="name" value={props.values.name}
-                                            onChange={props.handleChange} onBlur={props.handleBlur}/>
+                  <label>姓名： </label><Field name="name"/>
                 </div>
                 <div>
                   <label>性别： </label>
-                  <input type="radio" id="male" value="male" name="gender" onChange={props.handleChange}
-                         onBlur={props.handleBlur}/> <label htmlFor="male">男</label>
-                  <input type="radio" id="female" value="female" name="gender" onChange={props.handleChange}
-                         onBlur={props.handleBlur}/> <label htmlFor="female">女</label>
+                  <Field name="gender" render={({field}) =>
+                    <input type="radio" name={field.name} value="male" checked={field.value === "male"}
+                           onChange={field.onChange}
+                           onBlur={field.onBlur}/>
+                  }/>
+                  <label htmlFor="male">男</label>
+                  <Field name="gender" render={({field}) =>
+                    <input type="radio" name={field.name} value="female" checked={field.value === "female"}
+                           onChange={field.onChange}
+                           onBlur={field.onBlur}/>
+                  }/> <label htmlFor="female">女</label>
                 </div>
                 <div>
-                  <label>年龄： </label><input type="number" id="age" name="age" value={props.values.age}
-                                            onChange={props.handleChange} onBlur={props.handleBlur}/>
+                  <label>年龄： </label><Field name="age"/>
                 </div>
                 <div className="submit-area">
                   <button type="submit">提交</button>
@@ -58,7 +63,7 @@ class App extends Component {
               {JSON.stringify(props, null, 4)}
             </pre>
               </div>
-            </form>
+            </Form>
           }
         />
       </div>
