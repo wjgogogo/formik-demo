@@ -16,16 +16,28 @@
 }
 
 .address {
-	margin-left: 52px;
+	margin: 10px 52px;
 }
 
-.submit-area{
+.address_add {
+	display: inline-block;
+	margin-left: 10px;
+	border: 1px solid;
+	padding: 0 5px;
+}
+
+.submit-area {
 	margin-left: 52px;
 	margin-top: 30px;
 }
 
-.submit-area button{
+.submit-area button {
 	font-size: 1rem;
+}
+
+.error{
+	color: red;
+	margin-left: 52px;
 }
 .debug {
 	line-height: 1.5;
