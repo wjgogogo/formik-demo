@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Formik, Field, Form} from "formik";
+import {Formik, Field, Form, ErrorMessage} from "formik";
 
 import './App.css';
 
@@ -36,6 +36,8 @@ class App extends Component {
               <div className="content">
                 <div>
                   <label>姓名： </label><Field name="name"/>
+                  <ErrorMessage name="name"/>
+                  {props.touched.name && props.errors.name && <div>{props.errors.name}</div>}
                 </div>
                 <div>
                   <label>性别： </label>
@@ -50,9 +52,11 @@ class App extends Component {
                            onChange={field.onChange}
                            onBlur={field.onBlur}/>
                   }/> <label htmlFor="female">女</label>
+                  <ErrorMessage name="gender"/>
                 </div>
                 <div>
                   <label>年龄： </label><Field name="age"/>
+                  <ErrorMessage name="age"/>
                 </div>
                 <div className="submit-area">
                   <button type="submit">提交</button>
